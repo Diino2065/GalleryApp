@@ -2,4 +2,21 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!-- Gradient boje za slike gradova -->
+    <color name="img_paris_start">#7C4DFF</color>
+    <color name="img_paris_end">#448AFF</color>
+    <color name="img_tokyo_start">#FF5252</color>
+    <color name="img_tokyo_end">#FF6D00</color>
+    <color name="img_newyork_start">#00B0FF</color>
+    <color name="img_newyork_end">#1DE9B6</color>
+    <color name="img_rome_start">#69F0AE</color>
+    <color name="img_rome_end">#00BFA5</color>
+    <color name="img_sydney_start">#FF6E40</color>
+    <color name="img_sydney_end">#FFAB40</color>
+    <color name="img_dubai_start">#FFD740</color>
+    <color name="img_dubai_end">#FF6D00</color>
+    <color name="img_london_start">#40C4FF</color>
+    <color name="img_london_end">#B388FF</color>
+    <color name="img_barcelona_start">#F06292</color>
+    <color name="img_barcelona_end">#CE93D8</color>
 </resources>

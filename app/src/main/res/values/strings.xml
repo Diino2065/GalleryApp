@@ -1,3 +1,3 @@
 <resources>
     <string name="app_name">Gallery</string>
-</resources>
+    <string name="image_content_description">Gallery image</string></resources>
