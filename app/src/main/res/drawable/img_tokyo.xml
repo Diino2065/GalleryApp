@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:img_tokyo_start="#FF5252"
+        android:img_tokyo_end="#FF6D00"
+        android:angle="135" />
+</shape>
