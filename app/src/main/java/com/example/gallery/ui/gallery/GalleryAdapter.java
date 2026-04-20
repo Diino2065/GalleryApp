@@ -16,6 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHolder> {
+
+    private OnItemLongClickListener longClickListener;
+    private int contextMenuPosition = -1;
+
+    // interface za click
     public interface OnItemClickListener {
         void onItemClick(imageItem item, int position);
     }
@@ -26,6 +31,24 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
     public void setOnItemClickListener(OnItemClickListener clickListener) {
         this.clickListener = clickListener;
     }
+
+
+    // interface za long click
+    public interface OnItemLongClickListener {
+        boolean onItemLongClick(imageItem item, int position);
+    }
+    public void setOnItemLongClickListener(OnItemLongClickListener listener) {this.longClickListener = listener;}
+
+    public int getContextMenuPosition() {
+        return contextMenuPosition;
+    }
+    public imageItem getItemAt(int position) {
+        if (position >= 0 && position < items.size()) {
+            return items.get(position);
+        }
+        return null;
+    }
+
 
     public void setItems(List<imageItem> items) {
         this.items = items != null ? items : new ArrayList<>();
@@ -38,6 +61,8 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_gallery, parent, false);
         return new ViewHolder(view);
     }
+
+
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
@@ -59,6 +84,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
             super(itemView);
             imageView = itemView.findViewById(R.id.imageView);
             titleView = itemView.findViewById(R.id.textTitle);
+
             itemView.setOnClickListener(v -> {
                 if (clickListener != null) {
                     int position = getBindingAdapterPosition();
@@ -66,6 +92,17 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
                         clickListener.onItemClick(items.get(position), position);
                     }
                 }
+            });
+
+            itemView.setOnLongClickListener(v -> {
+                int pos = getBindingAdapterPosition();
+                if (pos != RecyclerView.NO_POSITION) {
+                    contextMenuPosition = pos;
+                    if (longClickListener != null) {
+                        return longClickListener.onItemLongClick(items.get(pos), pos);
+                    }
+                }
+                return false;
             });
         }
     }
