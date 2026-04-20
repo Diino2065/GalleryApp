@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Gallery</string>
-    <string name="image_content_description">Gallery image</string></resources>
+    <string name="image_content_description">Gallery image</string>
+    <string name="appbar_scrolling_view_behavior">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="info">Info</string>
+    <string name="deleted">%s deleted</string>
+    <string name="share_via">Share via</string>
+</resources>

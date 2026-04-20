@@ -1,13 +1,13 @@
 package com.example.gallery.data.model;
 
-public class imageItem {
+public class ImageItem {
     private final int id;
     private final String title;
     private final int imageRes;
     private final String descriptionUrl;
     private final String dateAdded;
 
-    public imageItem(int id, String title, int imageRes, String descriptionUrl, String dateAdded) {
+    public ImageItem(int id, String title, int imageRes, String descriptionUrl, String dateAdded) {
         this.id = id;
         this.title = title;
         this.imageRes = imageRes;

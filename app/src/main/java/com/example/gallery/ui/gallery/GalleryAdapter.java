@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gallery.R;
-import com.example.gallery.data.model.imageItem;
+import com.example.gallery.data.model.ImageItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +22,10 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
 
     // interface za click
     public interface OnItemClickListener {
-        void onItemClick(imageItem item, int position);
+        void onItemClick(ImageItem item, int position);
     }
 
-    private List<imageItem> items = new ArrayList<>();
+    private List<ImageItem> items = new ArrayList<>();
     private OnItemClickListener clickListener;
 
     public void setOnItemClickListener(OnItemClickListener clickListener) {
@@ -35,14 +35,14 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
 
     // interface za long click
     public interface OnItemLongClickListener {
-        boolean onItemLongClick(imageItem item, int position);
+        boolean onItemLongClick(ImageItem item, int position);
     }
     public void setOnItemLongClickListener(OnItemLongClickListener listener) {this.longClickListener = listener;}
 
     public int getContextMenuPosition() {
         return contextMenuPosition;
     }
-    public imageItem getItemAt(int position) {
+    public ImageItem getItemAt(int position) {
         if (position >= 0 && position < items.size()) {
             return items.get(position);
         }
@@ -50,7 +50,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
     }
 
 
-    public void setItems(List<imageItem> items) {
+    public void setItems(List<ImageItem> items) {
         this.items = items != null ? items : new ArrayList<>();
         notifyDataSetChanged();
     }
@@ -66,7 +66,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        imageItem item = items.get(position);
+        ImageItem item = items.get(position);
         holder.imageView.setImageResource(item.getImageRes());
         holder.titleView.setText(item.getTitle());
     }
