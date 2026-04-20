@@ -1,5 +1,6 @@
 package com.example.gallery.data.repository;
-
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import com.example.gallery.R;
 import com.example.gallery.data.model.imageItem;
 
@@ -8,6 +9,10 @@ import java.util.List;
 
 public class ImageRepository {
     private static ImageRepository instance;
+
+
+    private final MutableLiveData<List<imageItem>> itemsLiveData = new MutableLiveData<>();
+
     private final List<imageItem> items = new ArrayList<>();
 
     private ImageRepository() {
@@ -35,7 +40,16 @@ public class ImageRepository {
         items.add(new imageItem(8, "Tokyo", R.drawable.img_tokyo, "https://en.wikipedia.org/wiki/Tokyo", day));
     }
 
+    public LiveData<List<imageItem>> getImages() {
+        return itemsLiveData;
+    }
+
     public List<imageItem> getItemsList() {
         return new ArrayList<>(items);
+    }
+
+    public void deleteImage(String id) {
+        items.removeIf(item -> item.getId() == Integer.parseInt(id));
+        itemsLiveData.setValue(new ArrayList<>(items));
     }
 }
