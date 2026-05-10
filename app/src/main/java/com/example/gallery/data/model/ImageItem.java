@@ -5,14 +5,14 @@ public class ImageItem {
     private final String title;
     private final int imageRes;
     private final String descriptionUrl;
-    private final String dateAdded;
+    private final Long dateAdded;
 
     public ImageItem(int id, String title, int imageRes, String descriptionUrl, String dateAdded) {
         this.id = id;
         this.title = title;
         this.imageRes = imageRes;
         this.descriptionUrl = descriptionUrl;
-        this.dateAdded = dateAdded;
+        this.dateAdded = Long.valueOf(dateAdded);
     }
 
     public int getId() {
@@ -31,7 +31,7 @@ public class ImageItem {
         return descriptionUrl;
     }
 
-    public String getDateAdded() {
+    public Long getDateAdded() {
         return dateAdded;
     }
 }

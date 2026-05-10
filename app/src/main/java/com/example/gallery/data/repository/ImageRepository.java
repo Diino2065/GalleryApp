@@ -7,8 +7,10 @@ import com.example.gallery.R;
 import com.example.gallery.data.model.ImageItem;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-
+import java.util.ArrayList;
+import java.util.Collections;
 public class ImageRepository {
     private static ImageRepository instance;
 
@@ -62,4 +64,52 @@ public class ImageRepository {
         } catch (NumberFormatException ignored) {
         }
     }
+    public void sortByDate() {
+        Collections.sort(items,
+                (a, b) -> Long.compare(
+                        a.getDateAdded(),
+                        b.getDateAdded()
+                )
+        );
+
+        itemsLiveData.setValue(new ArrayList<>(items));
+    }
+    public void sortByName() {
+        Collections.sort(items, (a, b) -> a.getTitle().compareToIgnoreCase(b.getTitle()));
+        itemsLiveData.setValue(new ArrayList<>(items));
+    }
+    public void addImage(ImageItem item) {
+        items.add(item);
+        itemsLiveData.setValue(new ArrayList<>(items));
+    }
+
+    public void deleteImage(ImageItem item) {
+        if (item == null) return;
+
+        items.remove(item);
+
+        itemsLiveData.setValue(new ArrayList<>(items));
+    }
+
+    public void searchImages(String query) {
+
+        if (query == null || query.trim().isEmpty()) {
+            itemsLiveData.setValue(new ArrayList<>(items));
+            return;
+        }
+
+        List<ImageItem> filtered = new ArrayList<>();
+
+        for (ImageItem item : items) {
+
+            if (item.getTitle().toLowerCase()
+                    .contains(query.toLowerCase())) {
+
+                filtered.add(item);
+            }
+        }
+
+        itemsLiveData.setValue(filtered);
+    }
+
 }

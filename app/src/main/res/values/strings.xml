@@ -5,4 +5,18 @@
     <string name="info">Info</string>
     <string name="deleted">%s deleted</string>
     <string name="share_via">Share via</string>
+    <string name="sort_by_name">Sort by name</string>
+    <string name="sort_by_date">Sort by date </string>
+    <string name="action_grid_view">Grid View</string>
+    <string name="action_list_view">List  View </string>
+<string name="dark_mode">Dark Mode</string><string name="theme_light">Light</string>
+<string  name="theme_dark">Dark </string>
+<string name="nav_header_subtitle">City Gallery</string>
+<string name="nav_open">Open navigation drawer </string>
+<string name="nav_close">Close navigation drawer</string>
+<string name="context_help">Help </string>
+<string name="app_version">Version 0.0.1</string>
+<string name="nav_layout">Layout </string>
+<string name="nav_sort">Sorting</string>
+<string name="nav_theme">Theme</string>
 </resources>
